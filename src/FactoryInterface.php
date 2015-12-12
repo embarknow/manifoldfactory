@@ -5,7 +5,7 @@ namespace EmbarkNow\ManifoldFactory;
 /**
  * Manifold Factory
  */
-interface ManifoldFactoryInterface
+interface FactoryInterface
 {
     /**
      * Add a factory definition
@@ -55,7 +55,7 @@ interface ManifoldFactoryInterface
      * @param  array  $data
      * @param  array  $ctorArgs
      * @param  array  $postMethods
-     * @return EntityInterface
+     * @return mixed
      */
     public function make($type, array $data, array $ctorArgs = [], array $postMethods = []);
 }

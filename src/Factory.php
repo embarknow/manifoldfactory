@@ -1,8 +1,10 @@
 <?php
 
-namespace EmbarkNow\Journey\Domain;
+namespace EmbarkNow\ManifoldFactory;
 
-trait ManifoldFactoryTrait
+use EmbarkNow\ManifoldFactory\FactoryInterface;
+
+class Factory implements FactoryInterface
 {
     /**
      * @var array
@@ -89,7 +91,7 @@ trait ManifoldFactoryTrait
      * @param  array  $data
      * @param  array  $ctorArgs
      * @param  array  $postMethods
-     * @return EntityInterface
+     * @return mixed
      */
     public function make($type, array $data, array $ctorArgs = [], array $postMethods = [])
     {
