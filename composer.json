@@ -12,12 +12,17 @@
     "repositories": [
         {
             "type": "git",
+            "url": "git://github.com/embarknow/common"
+        },
+        {
+            "type": "git",
             "url": "git://github.com/embarknow/manifoldfactory"
         }
     ],
     "require": {
         "php": ">=5.6",
-        "rdlowrey/auryn": "^1.1"
+        "rdlowrey/auryn": "^1.1",
+        "embarknow/common": "dev-master"
     },
     "autoload": {
         "psr-4": {
