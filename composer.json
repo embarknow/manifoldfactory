@@ -26,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "EmbarkNow\\Journey\\Factories\\": "src/"
+            "EmbarkNow\\ManifoldFactory\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "EmbarkNow\\Journey\\Tests\\Factories\\": "tests/"
+            "EmbarkNow\\Tests\\ManifoldFactory\\": "tests/"
         }
     },
     "require-dev": {

@@ -21,7 +21,7 @@ trait FactoryBasicsTrait
     public function addFactoryType($key, $factory)
     {
         if (null === $this->factoryTypes) {
-            $this->factories = [];
+            $this->factoryTypes = [];
         }
 
         if (!array_key_exists($key, $this->factoryTypes)) {
@@ -39,7 +39,7 @@ trait FactoryBasicsTrait
     public function addFactoryTypes(array $factoryTypes)
     {
         foreach ($factoryTypes as $key => $factory) {
-            $this->addFactory($key, $factory);
+            $this->addFactoryType($key, $factory);
         }
 
         return $this;
@@ -50,7 +50,7 @@ trait FactoryBasicsTrait
      * @param  string  $name
      * @return boolean
      */
-    public function hasFactory($name)
+    public function hasFactoryType($name)
     {
         return isset($this->factoryTypes[$name]);
     }
@@ -60,7 +60,7 @@ trait FactoryBasicsTrait
      * @param  strint $name
      * @return array
      */
-    public function getFactory($name)
+    public function getFactoryType($name)
     {
         return $this->factoryTypes[$name];
     }
@@ -69,7 +69,7 @@ trait FactoryBasicsTrait
      * Get all factories
      * @return array
      */
-    public function getFactories()
+    public function getFactoryTypes()
     {
         return $this->factoryTypes;
     }
@@ -79,7 +79,7 @@ trait FactoryBasicsTrait
      * @param  string $name
      * @return self
      */
-    public function removeFactory($name)
+    public function removeFactoryType($name)
     {
         unset($this->factoryTypes[$name]);
 

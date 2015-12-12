@@ -2,8 +2,8 @@
 
 namespace EmbarkNow\ManifoldFactory;
 
+use InvalidArgumentException;
 use Auryn\Injector;
-
 use EmbarkNow\Aware\InjectorAwareInterface;
 use EmbarkNow\Aware\InjectorAwareTrait;
 use EmbarkNow\ManifoldFactory\FactoryInterface;
@@ -42,7 +42,7 @@ class InjectorFactory implements FactoryInterface
         }
 
         if (null === $this->factoryTypes) {
-            $this->factories = [];
+            $this->factoryTypes = [];
         }
 
         if (!array_key_exists($key, $this->factoryTypes)) {
@@ -64,7 +64,7 @@ class InjectorFactory implements FactoryInterface
                 throw new InvalidArgumentException("Factory definition provided must be of type array.");
             }
 
-            $this->addFactory($key, $factory);
+            $this->addFactoryType($key, $factory);
         }
 
         return $this;
@@ -79,7 +79,7 @@ class InjectorFactory implements FactoryInterface
      */
     public function make($type, array $ctorArgs = [], array $postMethods = [])
     {
-        $definition = $this->factories[$type];
+        $definition = $this->factoryTypes[$type];
         $factory = $definition[0];
         $ctorArgs = array_replace((
             isset($factory[1]) && is_array($factory[1])

@@ -21,7 +21,7 @@ class SimpleFactory implements FactoryInterface
      */
     public function make($type, array $ctorArgs = [], array $postMethods = [])
     {
-        $factory = $this->factories[$type];
+        $factory = $this->factoryTypes[$type];
         $instance = new $factory($ctorArgs);
 
         foreach ($postMethods as $method => $args) {

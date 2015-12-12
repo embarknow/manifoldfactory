@@ -52,10 +52,9 @@ interface FactoryInterface
     /**
      * Make an instance of a stored factory
      * @param  string $type
-     * @param  array  $data
      * @param  array  $ctorArgs
      * @param  array  $postMethods
      * @return mixed
      */
-    public function make($type, array $data, array $ctorArgs = [], array $postMethods = []);
+    public function make($type, array $ctorArgs = [], array $postMethods = []);
 }
