@@ -3,7 +3,7 @@
 namespace EmbarkNow\ManifoldFactory;
 
 /**
- * Factory Basics trait
+ * Factory Basics trait.
  */
 trait FactoryBasicsTrait
 {
@@ -13,9 +13,11 @@ trait FactoryBasicsTrait
     protected $factoryTypes;
 
     /**
-     * Add a factory definition
+     * Add a factory definition.
+     *
      * @param string $key
-     * @param mixed $factory
+     * @param mixed  $factory
+     *
      * @return self
      */
     public function addFactoryType($key, $factory)
@@ -32,8 +34,10 @@ trait FactoryBasicsTrait
     }
 
     /**
-     * Add an array of factory definitions
+     * Add an array of factory definitions.
+     *
      * @param array $factoryTypes
+     *
      * @return self
      */
     public function addFactoryTypes(array $factoryTypes)
@@ -46,9 +50,11 @@ trait FactoryBasicsTrait
     }
 
     /**
-     * Check a factory has been set
-     * @param  string  $name
-     * @return boolean
+     * Check a factory has been set.
+     *
+     * @param string $name
+     *
+     * @return bool
      */
     public function hasFactoryType($name)
     {
@@ -56,8 +62,10 @@ trait FactoryBasicsTrait
     }
 
     /**
-     * Get a factory by name
-     * @param  strint $name
+     * Get a factory by name.
+     *
+     * @param strint $name
+     *
      * @return array
      */
     public function getFactoryType($name)
@@ -66,7 +74,8 @@ trait FactoryBasicsTrait
     }
 
     /**
-     * Get all factories
+     * Get all factories.
+     *
      * @return array
      */
     public function getFactoryTypes()
@@ -75,8 +84,10 @@ trait FactoryBasicsTrait
     }
 
     /**
-     * Remove a factory definition
-     * @param  string $name
+     * Remove a factory definition.
+     *
+     * @param string $name
+     *
      * @return self
      */
     public function removeFactoryType($name)

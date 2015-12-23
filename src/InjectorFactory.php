@@ -4,13 +4,10 @@ namespace EmbarkNow\ManifoldFactory;
 
 use InvalidArgumentException;
 use Auryn\Injector;
-use EmbarkNow\Aware\InjectorAwareInterface;
 use EmbarkNow\Aware\InjectorAwareTrait;
-use EmbarkNow\ManifoldFactory\FactoryInterface;
-use EmbarkNow\ManifoldFactory\FactoryBasicsTrait;
 
 /**
- * Injector based Factory implementation
+ * Injector based Factory implementation.
  */
 class InjectorFactory implements FactoryInterface
 {
@@ -21,7 +18,8 @@ class InjectorFactory implements FactoryInterface
     }
 
     /**
-     * Accepts the Injector instance
+     * Accepts the Injector instance.
+     *
      * @param Injector $injector
      */
     public function __construct(Injector $injector)
@@ -30,15 +28,17 @@ class InjectorFactory implements FactoryInterface
     }
 
     /**
-     * Add a factory definition
+     * Add a factory definition.
+     *
      * @param string $key
-     * @param mixed $factory
+     * @param mixed  $factory
+     *
      * @return self
      */
     public function addFactoryType($key, $factory)
     {
         if (!is_array($factory)) {
-            throw new InvalidArgumentException("Factory definition provided must be of type array.");
+            throw new InvalidArgumentException('Factory definition provided must be of type array.');
         }
 
         if (null === $this->factoryTypes) {
@@ -53,15 +53,17 @@ class InjectorFactory implements FactoryInterface
     }
 
     /**
-     * Add an array of factory definitions
+     * Add an array of factory definitions.
+     *
      * @param array $factoryTypes
+     *
      * @return self
      */
     public function addFactoryTypes(array $factoryTypes)
     {
         foreach ($factoryTypes as $key => $factory) {
             if (!is_array($factory)) {
-                throw new InvalidArgumentException("Factory definition provided must be of type array.");
+                throw new InvalidArgumentException('Factory definition provided must be of type array.');
             }
 
             $this->addFactoryType($key, $factory);
@@ -71,10 +73,12 @@ class InjectorFactory implements FactoryInterface
     }
 
     /**
-     * Make an instance of a stored factory
-     * @param  string $type
-     * @param  array  $ctorArgs
-     * @param  array  $postMethods
+     * Make an instance of a stored factory.
+     *
+     * @param string $type
+     * @param array  $ctorArgs
+     * @param array  $postMethods
+     *
      * @return mixed
      */
     public function make($type, array $ctorArgs = [], array $postMethods = [])
@@ -93,6 +97,5 @@ class InjectorFactory implements FactoryInterface
         }
 
         return $instance;
-
     }
 }
